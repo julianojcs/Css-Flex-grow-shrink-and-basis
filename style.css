@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: rgb(216, 230, 252);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.b {
+  display: flex;
+}
+
+.a {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 300px;
+  height: 10rem;
+  width: 100%;
+}
+
+.orange {
+  background-color: orange;
+  flex-grow: 5;
+  flex-shrink: 1;
+}
+
+.green {
+  background-color: springgreen;
+  flex-grow: 3;
+  flex-shrink: 3;
+}
+
+.brown {
+  background-color: brown;
+  flex-grow: 0;
+  flex-shrink: 5;
+}

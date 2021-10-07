@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Juliano Costa Silva">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CSS Flex (grow, shrink and basis)</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="b">
+      <div class="a orange"></div>
+      <div class="a green"></div>
+      <div class="a brown"></div>
+    </div>
+    <div class="wrapper">
+      <ul>
+        <li><strong>flex-basis:</strong> It specifies the ideal size for the items. Ideal means "assuming there is neither any extra space, nor any shortages of the space". 0% means we have no ideal size for them, we want them to be sized truely flexibly. We want them to be sized automatically(thus the word "flexible") based on the available space.</li>
+        <li><strong>flex-grow:</strong> After taking the flex-basis into consideration, if there's remaining extra space, it specifies how "that extra space"(notice we're not talking about the whole space) must be divided between the items. The ones with higher flex-grow will eat up more of the extra space. It makes sense to use an equal flex-grow on all items by default so that all items will have the same share of the extra space. When flex-basis is 0%, a flex-grow of 1 on all items makes them divide "the whole space of the container"(since flex-basis used no space, the extra space equals the whole space of the container).</li>
+        <li><strong>flex-shrink:</strong> After taking the flex-basis into consideration, if the available space is not enough, it specifies how "the shortage of space"(and again, not the whole space) must be divided(imposed on) among the items. The ones with higher flex-shrink will have to "endure" more of that shortage.</li>
+      </ul>
+      <div>
+        <strong>Examples:</strong>
+        <ul>
+          <li>
+            <strong>flex-basis</strong> A flex-basis of 400px on 3 items, means that we'd rather have 3 items of 400px wide each. Now, what will happen:
+            <ol>
+              <li>If we have extra space? Let's say the container width is 1500 pixels wide. The 3 items will take up 1200 pixels, what should happen to that extra 300 pixels?</li>
+              <li>If we have shortage of space in the container? E.g., If there are 5 items of 400 pixels each in a 1500px container (shortage = |1500px - 5 * 400px| = 500px).</l>
+            </ol>
+          </li>
+          <li>The answer to the two questions above are <strong>flex-grow</strong> (answer to the 1st question) and <strong>flex-shrink</strong> (answer to the 2nd question).</li>
+        </ul>
+        <div>E.g., what if one of the three items had a flex-grow of 5 and the other ones were still on their default values(i.e., 1)? Then the one with the flex-grow of 5 would get (300px / (1+1+5)) * 3 of the extra space.</div>
+        <div>Another useful example is, if you have a flex container and you want each of the children to take exactly the full width of the parent(e.g., an image carousel), in that case you may use a flex: 0 0 100% on all children so that items will have a flex-basis of taking the full-width of the parent, and turning their growing/shrinking off.</div>
+      </div>
+      <a href="https://stackoverflow.com/questions/37386244/what-does-flex-1-mean/42630660">stackoverflow</d>
+    </div>
+  </body>
+</html>
